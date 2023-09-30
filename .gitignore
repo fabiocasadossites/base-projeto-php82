@@ -1,0 +1,12 @@
+*.pdf
+*.env
+*.txt
+*.key
+*.crt
+*.sql
+*.zip
+*.cer
+*.pub
+*vendor/
+*main.yml
+*config.php

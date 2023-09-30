@@ -1,0 +1,30 @@
+RewriteEngine On
+Options All -Indexes
+
+# #configurar www
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# #Obrigar HHTPS
+# RewriteCond %{HTTP:X-Forwarded-Proto} !https
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-l
+RewriteRule ^(.*)$ index.php/$1
+
+RewriteRule . - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# compress text, html, javascript, css, xml:
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/javascript
+
+

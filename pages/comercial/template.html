@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html data-theme="cupcake" lang="pt-br" itemscope itemtype="https://schema.org/WebPage">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="base" href="{{HOME}}" />
+	<meta name="description" content="{{DESCRICAO}}" />
+	<meta name="robots" content="index, follow" />
+	<meta name="author" content="{{EMPRESA}}" />
+	<link rel="canonical" href="{{HOME_PAGE}}" />
+	<link rel="shortcut icon" href="{{IMAGENS}}fixas/icon_tranparente.png" />
+
+	<title>
+		{{TITLE}}
+	</title>
+
+	<!-- SEO SHEMA -->
+	<meta itemprop="name" content="{{title}}" />
+	<meta itemprop="description" content="{{DESCRICAO}}" />
+	<meta itemprop="image" content="{{IMG_PAGE}}" />
+	<meta
+		  itemprop="url" content="{{HOME_PAGE}}" />
+
+	<!-- PÁGINAS DE ESTILO -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<!-- style e icons -->
+	<link rel="stylesheet" href="{{HOME}}pages/comercial/assets/styles/output.css" />
+
+
+	{% if MINIFIER == 2 %}
+	{# CSS #}
+	<link rel="stylesheet" href="{{HOME}}pages/comercial/assets/styles/styles.css" />
+	<link rel="stylesheet" href="{{HOME}}pages/comercial/assets/styles/responsive.css" />
+	<link rel="stylesheet" href="{{HOME}}src/styles/fixed_styles.css" />
+	<link rel="stylesheet" href="{{HOME}}src/select2/select2.min.css" />
+	<link rel="stylesheet" href="{{HOME}}src/jPages/jPages.css" />
+	<link rel="stylesheet" href="{{HOME}}src/hover/hover.css" />
+	<link rel="stylesheet" href="{{HOME}}src/datepicker/dist/css/datepicker.min.css" />
+	<link rel="stylesheet" href="{{HOME}}src/animate/animate.css" />
+	<link
+		  rel="stylesheet" href="{{HOME}}src/shawdonbox/shadowbox.css" />
+
+	{# JAVASCRIPT #}
+	<script type="text/javascript" src="{{HOME}}src/js/modernizr.min.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/js/html5shiv.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/js/jquery-atual.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/js/jquery.form.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/jPages/jPages.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/select2/select2.full.min.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/datepicker/dist/js/datepicker.min.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/datepicker/dist/js/i18n/datepicker.pt-BR.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/js/rxscroll.min.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/js/mascaradedinheiro.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/js/mascaradata.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/js/shadowbox.js"></script>
+	<script type="text/javascript" src="{{HOME}}pages/comercial/assets/js/js.js"></script>
+	<script type="text/javascript" src="{{HOME}}src/js/fixed_js.js"></script>
+
+	{% endif %}
+
+	{% if MINIFIER == 3 %}
+	<link rel="stylesheet" href="{{HOME}}pages/comercial/assets/styles/styles_min.css" />
+	<script type="text/javascript" src="{{HOME}}pages/comercial/assets/js/js_min.js"></script>
+	{% endif %}
+
+
+</head>
+
+<body>
+	{% block body %}{% endblock %}
+</body>
+
+</html>
