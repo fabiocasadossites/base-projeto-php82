@@ -30,7 +30,7 @@ Fabio Augusto [@gitHub](https://github.com/fabiocasadossites)
 2. _Por favor, faça um clone do repositório em sua máquina._
 
 ```
-git clone https://github.com/fabiocasadossites/gruponyata_new.git
+git clone https://github.com/fabiocasadossites/base-projeto-php82.git
 ```
 
 3. Vá na pasta app/ altere o nome do arquivo config_template.php para config.php
