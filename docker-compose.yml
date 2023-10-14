@@ -1,0 +1,52 @@
+version: "3.1"
+services:
+  mysql:
+    image: "mysql:8.0"
+    working_dir: /application
+    volumes:
+      - ".:/application"
+    environment:
+      - MYSQL_ROOT_PASSWORD=apollo1007
+      - MYSQL_DATABASE=nyata_oraco
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=apollo1007
+    ports:
+      - "8002:3306"
+
+  postgres:
+    image: "postgres:15-alpine"
+    working_dir: /application
+    volumes:
+      - ".:/application"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=apollo1007
+      - POSTGRES_DB=nyata_oraco
+    ports:
+      - "8004:5432"
+
+  webserver:
+    image: "nginx:alpine"
+    working_dir: /application
+    volumes:
+      - ".:/application"
+      - "./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf"
+    ports:
+      - "8000:80"
+
+  php-fpm:
+    build: phpdocker/php-fpm
+    working_dir: /application
+    volumes:
+      - ".:/application"
+      - "./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.2/fpm/conf.d/99-overrides.ini"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: apollo1007
